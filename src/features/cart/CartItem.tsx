@@ -1,4 +1,11 @@
-function CartItem({ item }) {
+import { formatCurrency } from "../../utils/helpers";
+import type { CartItemType } from "../../types";
+
+interface CartItemProps {
+  item: CartItemType;
+}
+
+function CartItem({ item }: CartItemProps) {
   const { pizzaId, name, quantity, totalPrice } = item;
 
   return (

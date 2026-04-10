@@ -1,6 +1,8 @@
+import type { Pizza, Order, NewOrder } from '../types';
+
 const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 
-export async function getMenu() {
+export async function getMenu(): Promise<Pizza[]> {
   const res = await fetch(`${API_URL}/menu`);
 
   // fetch won't throw error on 400 errors (e.g. when URL is wrong), so we need to do it manually. This will then go into the catch block, where the message is set
@@ -10,7 +12,7 @@ export async function getMenu() {
   return data;
 }
 
-export async function getOrder(id) {
+export async function getOrder(id: string): Promise<Order> {
   const res = await fetch(`${API_URL}/order/${id}`);
   if (!res.ok) throw Error(`Couldn't find order #${id}`);
 
@@ -18,7 +20,7 @@ export async function getOrder(id) {
   return data;
 }
 
-export async function createOrder(newOrder) {
+export async function createOrder(newOrder: NewOrder): Promise<Order> {
   try {
     const res = await fetch(`${API_URL}/order`, {
       method: 'POST',
@@ -36,7 +38,7 @@ export async function createOrder(newOrder) {
   }
 }
 
-export async function updateOrder(id, updateObj) {
+export async function updateOrder(id: string, updateObj: Partial<Order>): Promise<void> {
   try {
     const res = await fetch(`${API_URL}/order/${id}`, {
       method: 'PATCH',

@@ -1,7 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import CartOverview from "../features/cart/CartOverview";
-import Cart from "../features/cart/Cart";
 import { Outlet, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
 
