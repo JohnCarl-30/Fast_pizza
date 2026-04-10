@@ -45,7 +45,7 @@ function CreateUser() {
           />
         </div>
 
-        {username !== '' && (
+        {username.length >= 3 && (
           <div className="pt-2 animate-in fade-in slide-in-from-bottom-2 duration-500">
             <Button type="primary">Start ordering &rarr;</Button>
           </div>
